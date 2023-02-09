@@ -1,9 +1,11 @@
 from app import app
 from config import db
-from models import Customer, Order, OrderDetail, OrderStatus, Item, Payment, Credit, Cash, Check, WireTransfer
+from models import Cash, Check, Credit, Customer, Item, Order, OrderDetail, OrderStatus, Payment, WireTransfer
+
 from flask import Flask, request, jsonify, render_template
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
 
 
